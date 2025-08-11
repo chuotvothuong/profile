@@ -228,14 +228,24 @@ footer {
   margin-top: 10px;
   font-size: 20px;     /* Có thể tăng/giảm */
    }
-   .AboutMe {
-  padding: 20px;
-  text-align: center; /* Căn giữa nội dung */
+   /* Căn giữa tiêu đề About Me */
+.NameFtThanhDieu {
+  display: block;
+  text-align: center;
+  color: #00aaff; /* Màu xanh dương */
 }
 
+/* Căn giữa nội dung About Me */
+.AboutMe {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Đoạn văn trong About Me */
 .BoxAboutMe {
   margin-bottom: 10px;
-  display: inline-block; /* Giúp căn giữa đoạn văn bản gọn hơn */
-  max-width: 600px;      /* Giới hạn chiều rộng để đọc dễ hơn */
+  display: inline-block;
+  max-width: 600px;
+  color: #00aaff; /* Màu xanh dương cho text */
 }
 }
