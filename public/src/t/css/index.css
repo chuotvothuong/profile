@@ -8,14 +8,14 @@
 }
 
 html, body {
-  height: 100%; /* đảm bảo 100% chiều cao màn hình */
+  height: 100%;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  background-color: transparent; /* bỏ nền đen, để video hiển thị */
-  overflow-x: hidden; /* tránh tràn ngang */
+  background-color: transparent;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -47,32 +47,11 @@ body {
 /* =========================
    PROFILE AVATAR
 ========================= */
-.Blob {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-top: 80px;
-  border: 3px solid #fff;
-  object-fit: cover;
-}
-
-.NameFtThanhDieu {
-  text-align: center;
-  font-size: 24px;
-  margin-top: 10px;
-}
-
-.verify {
-  width: 20px;
-  vertical-align: middle;
-}
-/* CSS chung cho cả khung */
 .BlurWebs {
   text-align: center;
   position: relative;
 }
 
-/* Điều chỉnh khung avatar */
 .avatar-frame {
   position: relative;
   width: 220px;
@@ -81,18 +60,16 @@ body {
   border-radius: 50%;
   overflow: hidden;
   z-index: 2;
-  box-shadow: 0 0 25px rgba(0, 170, 255, 0.8); /* làm sáng hơn */
+  box-shadow: 0 0 25px rgba(0, 170, 255, 0.8);
 }
 
-/* Ảnh đại diện bên trong */
 .avatar-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(1.05) contrast(1.1); /* ăn màu với khung hơn */
+  filter: brightness(1.05) contrast(1.1);
 }
 
-/* Khung VIP */
 .frame-img {
   position: absolute;
   top: 0;
@@ -100,12 +77,10 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: rotate 15s linear infinite;
   z-index: 3;
   mix-blend-mode: screen; /* hòa màu với ảnh */
 }
 
-/* Ảnh blob bên ngoài */
 .Blob {
   width: 260px;
   height: 260px;
@@ -116,14 +91,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  filter: blur(8px) brightness(0.9) saturate(1.2); /* mờ và ăn màu hơn */
+  filter: blur(8px) brightness(0.9) saturate(1.2);
   opacity: 0.6;
-}
-
-/* Hiệu ứng xoay khung */
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 /* Hiệu ứng hover */
@@ -131,6 +100,7 @@ body {
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
+
 /* =========================
    SOCIAL LINKS
 ========================= */
@@ -222,7 +192,6 @@ footer {
   border: none;
 }
 
-/* Giữ lại các style cũ */
 .MangXaHoiFtThanhDieu a div {
   display: inline-block;
   padding: 10px 20px;
@@ -275,7 +244,7 @@ footer {
   width: auto;
   height: auto;
   transform: translate(-50%, -50%);
-  object-fit: cover; /* Mặc định crop nhẹ để luôn kín */
+  object-fit: cover;
   background: black;
   z-index: -3;
 }
@@ -283,24 +252,22 @@ footer {
 /* Mobile ưu tiên hiển thị toàn bộ video */
 @media screen and (max-width: 768px) {
   #bgVideo {
-    object-fit: contain; /* giữ nguyên video, không mất nội dung */
+    object-fit: contain;
   }
 .TieuSu {
-  text-align: center;  /* Căn ngang giữa */
+  text-align: center;
   display: block;
   width: 100%;
   margin-top: 10px;
-  font-size: 20px;     /* Có thể tăng/giảm */
+  font-size: 20px;
 }
 
-/* Hiệu ứng 7 màu cho tiêu đề About Me */
 .NameFtThanhDieu {
   display: block;
   text-align: center;
   animation: rainbow 3s linear infinite;
 }
 
-/* Hiệu ứng 7 màu cho nội dung About Me */
 .BoxAboutMe {
   margin-bottom: 10px;
   display: inline-block;
@@ -308,18 +275,18 @@ footer {
   animation: rainbow 3s linear infinite;
 }
 
-/* Định nghĩa hiệu ứng cầu vồng */
 @keyframes rainbow {
-  0% { color: #ff0000; }    /* Đỏ */
-  14% { color: #ff7f00; }   /* Cam */
-  28% { color: #ffff00; }   /* Vàng */
-  42% { color: #00ff00; }   /* Xanh lá */
-  57% { color: #0000ff; }   /* Xanh dương */
-  71% { color: #4b0082; }   /* Chàm */
-  85% { color: #9400d3; }   /* Tím */
-  100% { color: #ff0000; }  /* Quay lại đỏ */
+  0% { color: #ff0000; }
+  14% { color: #ff7f00; }
+  28% { color: #ffff00; }
+  42% { color: #00ff00; }
+  57% { color: #0000ff; }
+  71% { color: #4b0082; }
+  85% { color: #9400d3; }
+  100% { color: #ff0000; }
 }
-   hr.New {
+
+hr.New {
   border: none;
   height: 4px;
   background: linear-gradient(
@@ -339,10 +306,9 @@ footer {
   border-radius: 4px;
 }
 
-/* Hiệu ứng chạy màu */
 @keyframes rainbowHr {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-   }
+}
