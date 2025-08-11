@@ -248,4 +248,30 @@ footer {
   max-width: 600px;
   color: #00aaff; /* Màu xanh dương cho text */
 }
+   hr.New {
+  border: none;
+  height: 4px;
+  background: linear-gradient(
+    270deg,
+    red,
+    orange,
+    yellow,
+    green,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  background-size: 1400% 1400%;
+  animation: rainbowHr 8s ease infinite;
+  margin: 20px auto;
+  border-radius: 4px;
+}
+
+/* Hiệu ứng chạy màu */
+@keyframes rainbowHr {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 }
