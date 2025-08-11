@@ -16,67 +16,107 @@
   <meta property="og:image" content="./public/src/t/img/avatar.jpg">
   <meta name="theme-color" content="#00FFFF">
 </head>
-<div class="heart-border">
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-  <span>❤️</span>
-</div>
+<body>
   <!-- Video Background -->
   <video autoplay muted loop id="bgVideo">
     <source src="./public/src/t/video/bg.mp4" type="video/mp4">
   </video>
 
-  <!-- Nhạc nền -->
-  <audio id="bgMusic" src="./public/src/t/audio/music.mp3" loop></audio>
-
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <!-- Main Content -->
+  <!-- Canvas Trái tim 7 màu -->
+  <canvas id="heartsCanvas"></canvas>
+
+  <!-- Nội dung trang -->
   <div class="BlurWebs">
-    <div class="Topnav">
-        <a class="Active">HOME</a>
-        <a><font color="red"><span id="fps">60.0</span> FPS</font></a>
-    </div>
-    
     <div class="avatar-container">
-        <div class="avatar-frame">
-            <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">
-            <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">
-        </div>
+      <div class="avatar-frame">
+        <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">
+        <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">
+      </div>
+      <div class="NameFtThanhDieu">𝑱𝒆𝒓𝒓𝒚 𝑬𝒃𝒂𝒏</div>
     </div>
 
-    <h2 class="NameFtJerry" id="userName">
-        Jerry Eban <img class="verify" src="./public/src/t/img/verify.png" alt="Verified"/>
-    </h2>
-    <h2 class="TieuSu GioiThieu">
-        Welcome to my<span class="typed-cursor" aria-hidden="true"></span>
-    </h2>
+    <!-- Social Network -->
+    <div class="MangXaHoiFtThanhDieu">
+      <!-- Thêm link mạng xã hội của bạn -->
+      <a href="https://facebook.com" target="_blank"><div class="Facebook rainbow">Facebook</div></a>
+      <a href="https://tiktok.com" target="_blank"><div class="TikTok rainbow">TikTok</div></a>
+      <a href="https://discord.com" target="_blank"><div class="Discord rainbow">Discord</div></a>
+      <a href="https://instagram.com" target="_blank"><div class="Instagram rainbow">Instagram</div></a>
+    </div>
   </div>
 
-  <!-- Social Links -->
-  <a id="Facebook" href="https://facebook.com/chuotxyzabc" target="_blank">
-  <div class="Facebook rainbow"><i class="bi bi-facebook">&nbsp;</i>Facebook (2xx)</div>
-</a>
+  <!-- Script trái tim 7 màu -->
+  <script>
+    const canvas = document.getElementById("heartsCanvas");
+    const ctx = canvas.getContext("2d");
+    let hearts = [];
 
-<a id="TikTok" href="https://" target="_blank">
-  <div class="TikTok rainbow"><i class="bi bi-tiktok">&nbsp;</i>Tik Tok (1k+)</div>
-</a>
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-<a id="Discord" href="https://discord.gg/ma_moi" target="_blank">
-  <div class="Discord rainbow"><i class="bi bi-discord">&nbsp;</i>Discord (0)</div>
-</a>
+    function createHeart(speed, size, pathPhase) {
+      return { x: 0, y: 0, speed, size, pathPhase };
+    }
 
-<a id="Instagram" href="https://instagram.com/ten_tai_khoan" target="_blank">
-  <div class="Instagram rainbow"><i class="bi bi-instagram">&nbsp;</i>Instagram (0)</div>
-</a>
-  </div>
+    function drawHeart(x, y, size, hue) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(size, size);
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.bezierCurveTo(0, -3, -5, -15, -15, -15);
+      ctx.bezierCurveTo(-35, -15, -35, 10, -35, 10);
+      ctx.bezierCurveTo(-35, 25, -20, 40, 0, 55);
+      ctx.bezierCurveTo(20, 40, 35, 25, 35, 10);
+      ctx.bezierCurveTo(35, 10, 35, -15, 15, -15);
+      ctx.bezierCurveTo(5, -15, 0, -3, 0, 0);
+      const gradient = ctx.createLinearGradient(-35, -15, 35, 55);
+      gradient.addColorStop(0, `hsl(${hue}, 100%, 50%)`);
+      gradient.addColorStop(1, `hsl(${(hue + 60) % 360}, 100%, 50%)`);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+      ctx.restore();
+    }
 
+    function updateHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const t = Date.now() / 1000;
+      hearts.forEach((heart, i) => {
+        const perimeter = (canvas.width + canvas.height) * 2;
+        let pos = (t * heart.speed + heart.pathPhase) % perimeter;
+        if (pos < canvas.width) {
+          heart.x = pos;
+          heart.y = 20 + Math.sin(pos / 50) * 5;
+        } else if (pos < canvas.width + canvas.height) {
+          heart.x = canvas.width - 20;
+          heart.y = pos - canvas.width;
+        } else if (pos < canvas.width * 2 + canvas.height) {
+          heart.x = canvas.width - (pos - canvas.width - canvas.height);
+          heart.y = canvas.height - 20 + Math.sin(pos / 50) * 5;
+        } else {
+          heart.x = 20;
+          heart.y = canvas.height - (pos - (canvas.width * 2 + canvas.height));
+        }
+        let hue = (t * 100 + i * 20) % 360;
+        drawHeart(heart.x, heart.y, heart.size, hue);
+      });
+      requestAnimationFrame(updateHearts);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      hearts.push(createHeart(Math.random() * 50 + 30, Math.random() * 0.5 + 0.3, Math.random() * 500));
+    }
+
+    updateHearts();
+  </script>
+</body>
 
   <!-- Footer -->
   <footer class="Cuoi Trang">
