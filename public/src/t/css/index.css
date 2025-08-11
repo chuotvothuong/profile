@@ -243,12 +243,15 @@ footer {
   #bgVideo {
     object-fit: contain;
   }
-  .TieuSu {
-    text-align: center;
-    display: block;
-    width: 100%;
-    margin-top: 10px;
-    font-size: 20px;
+  /* Welcome text 7 màu */
+.TieuSu {
+  font-weight: bold;
+  font-size: 22px;
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s ease infinite;
   }
   .NameFtThanhDieu {
     display: block;
