@@ -14,8 +14,8 @@ updateFPS();
 // Typed.js hiệu ứng gõ chữ
 new Typed(".TieuSu", {
   strings: ["Hi my name is ThanhDieu", "Welcome to my website!"],
-  typeSpeed: 50,
-  backSpeed: 25,
+  typeSpeed: 60,
+  backSpeed: 30,
   loop: true
 });
 
