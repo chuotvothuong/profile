@@ -174,18 +174,21 @@ footer {
 ========================= */
 #bgVideo {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* mặc định cho mobile */
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Mặc định crop nhẹ để luôn kín */
   background: black;
   z-index: -3;
 }
 
-/* Khi màn hình rộng hơn 768px (PC, tablet ngang) thì dùng cover */
-@media screen and (min-width: 768px) {
+/* Mobile ưu tiên hiển thị toàn bộ video */
+@media screen and (max-width: 768px) {
   #bgVideo {
-    object-fit: cover;
+    object-fit: contain; /* giữ nguyên video, không mất nội dung */
   }
 }
