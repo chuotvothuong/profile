@@ -81,7 +81,6 @@ body {
   height: 100%;
   object-fit: contain;
   z-index: 3;
-  mix-blend-mode: screen; /* hòa màu với ảnh */
 }
 
 /* Huy hiệu xanh */
@@ -89,7 +88,7 @@ body {
   width: 20px;
   height: auto;
   vertical-align: middle;
-  margin-left: 5px;
+  margin-left: 3px;
   display: inline-block;
 }
 
