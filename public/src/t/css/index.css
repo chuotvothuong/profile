@@ -81,18 +81,13 @@ body {
   mix-blend-mode: screen; /* hòa màu với ảnh */
 }
 
-.Blob {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  filter: blur(8px) brightness(0.9) saturate(1.2);
-  opacity: 0.6;
+/* Huy hiệu xanh */
+.verify {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 5px;
+  display: inline-block;
 }
 
 /* Hiệu ứng hover */
@@ -122,7 +117,7 @@ body {
   opacity: 0.9;
 }
 
-/* Giữ màu gốc khi không có rainbow */
+/* Màu gốc khi KHÔNG có rainbow */
 .Facebook:not(.rainbow) { background: #3b5998; }
 .Youtube:not(.rainbow) { background: #ff0000; }
 .Discord:not(.rainbow) { background: #7289da; }
@@ -136,6 +131,12 @@ body {
   color: #fff !important;
   font-weight: bold;
   border: none;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* =========================
@@ -188,13 +189,6 @@ footer {
   text-align: center;
 }
 
-/* Rainbow Gradient Animation */
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* =========================
    TOAST MESSAGE
 ========================= */
@@ -239,7 +233,9 @@ footer {
   z-index: -3;
 }
 
-/* Mobile ưu tiên hiển thị toàn bộ video */
+/* =========================
+   MOBILE
+========================= */
 @media screen and (max-width: 768px) {
   #bgVideo {
     object-fit: contain;
@@ -261,16 +257,6 @@ footer {
     display: inline-block;
     max-width: 600px;
     animation: rainbow 3s linear infinite;
-  }
-  @keyframes rainbow {
-    0% { color: #ff0000; }
-    14% { color: #ff7f00; }
-    28% { color: #ffff00; }
-    42% { color: #00ff00; }
-    57% { color: #0000ff; }
-    71% { color: #4b0082; }
-    85% { color: #9400d3; }
-    100% { color: #ff0000; }
   }
   hr.New {
     border: none;
@@ -296,4 +282,4 @@ footer {
     50%  { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-}
+   }
