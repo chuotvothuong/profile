@@ -363,4 +363,53 @@ footer {
   50% { box-shadow: 0 0 20px #00ffff; }
   100% { box-shadow: 0 0 5px #00ffff; }
   }
+   .hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.heart {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  transform: rotate(45deg);
+  animation: moveAround 8s linear infinite;
+  animation-delay: var(--d);
+}
+
+/* Tạo hình trái tim */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -9px;
+  left: 0;
+}
+
+.heart::after {
+  left: -9px;
+  top: 0;
+}
+
+/* Animation chạy vòng quanh */
+@keyframes moveAround {
+  0%   { top: 0; left: 50%; transform: translateX(-50%) rotate(45deg); }
+  25%  { top: 50%; left: 100%; transform: translate(-50%, -50%) rotate(45deg); }
+  50%  { top: 100%; left: 50%; transform: translate(-50%, -100%) rotate(45deg); }
+  75%  { top: 50%; left: 0; transform: translate(0, -50%) rotate(45deg); }
+  100% { top: 0; left: 50%; transform: translateX(-50%) rotate(45deg); }
+}
 }
