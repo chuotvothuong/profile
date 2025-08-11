@@ -84,21 +84,26 @@ body {
   text-align: center;
   position: relative;
 }
+.avatar-container {
+  text-align: center; /* căn giữa toàn bộ avatar + khung */
+}
+
 .avatar-frame {
   position: relative;
-  width: 220px; /* kích thước khung */
-  height: 220px;
+  width: 240px;  /* kích thước tổng thể khung */
+  height: 240px;
   margin: 0 auto;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .avatar-img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;  /* avatar nhỏ hơn khung */
+  height: 85%;
   object-fit: cover;
   border-radius: 50%;
-  position: relative;
   z-index: 1; /* ảnh nằm dưới khung */
 }
 
@@ -106,11 +111,11 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%;  /* khung phủ toàn container */
   height: 100%;
-  object-fit: contain; /* để giữ nguyên tỉ lệ khung */
-  z-index: 2; /* khung nằm trên ảnh */
-  pointer-events: none; /* để không chặn click */
+  object-fit: contain; /* giữ nguyên tỉ lệ khung */
+  z-index: 2; /* khung nằm trên avatar */
+  pointer-events: none; /* không chặn thao tác chuột */
 }
 /* Huy hiệu xanh */
 .verify {
