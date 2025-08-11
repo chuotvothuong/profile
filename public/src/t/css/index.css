@@ -66,7 +66,69 @@ body {
   width: 20px;
   vertical-align: middle;
 }
+/* CSS chung cho cả khung */
+.BlurWebs {
+  text-align: center;
+  position: relative;
+}
 
+/* Điều chỉnh khung avatar */
+.avatar-frame {
+  position: relative;
+  width: 200px; /* Kích thước bằng với ảnh blob */
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2; /* Đảm bảo khung nổi lên trên */
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+}
+
+/* Ảnh đại diện bên trong */
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Khung VIP */
+.frame-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: rotate 15s linear infinite;
+  z-index: 3;
+}
+
+/* Ảnh blob bên ngoài */
+.Blob {
+  width: 200px; /* Cùng kích thước với avatar-frame */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: blur(5px) brightness(0.8);
+  opacity: 0.7;
+}
+
+/* Hiệu ứng xoay khung */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Hiệu ứng hover */
+.avatar-frame:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
 /* =========================
    SOCIAL LINKS
 ========================= */
