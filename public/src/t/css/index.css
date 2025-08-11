@@ -81,8 +81,26 @@ body {
    PROFILE AVATAR
 ========================= */
 .BlurWebs {
-  text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Căn giữa ngang */
+  justify-content: center; /* Nếu cần căn giữa dọc */
+  text-align: center; /* Căn giữa chữ */
+}
+
+.NameFtThanhDieu {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid #00ffff;  /* viền xanh neon */
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4); /* nền mờ giúp dễ đọc */
+  text-align: center;
+  animation: glow 2s ease-in-out infinite;
 }
 .avatar-container {
   text-align: center; /* căn giữa toàn bộ avatar + khung */
