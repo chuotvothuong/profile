@@ -17,24 +17,126 @@
   <meta name="theme-color" content="#00FFFF">
 </head>
 <body class="Border">
-  <!-- Background Effects -->
+  <!-- Video Background -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="./public/src/t/video/bg.mp4" type="video/mp4">
+  </video>
+
+  <!-- Particles Background -->
   <div id="particles-js"></div>
+
+  <!-- Background Stars -->
   <section class="animated-background">
     <div id="stars1"></div>
     <div id="stars2"></div>
     <div id="stars3"></div>
   </section>
 
-  <!-- Navigation -->
+  <!-- Main Content -->
   <div class="BlurWebs">
     <div class="Topnav">
       <a class="Active">HOME</a>
       <a><font color="red"><span id="fps">60.0</span> FPS</font></a>
     </div>
 
-    <!-- Profile -->
     <p align="center">
       <img class="Blob" src="./public/src/t/img/avatar.jpg" alt="ThanhDieuTV">
+    </p>
+    <h2 class="NameFtThanhDieu" id="userName">
+      Vương Thanh Diệu&nbsp;<img class="verify" src="./public/src/t/img/verify.png" alt="Verified"/>
+    </h2>
+    <h2 class="TieuSu GioiThieu">Hi my name is ThanhDieu<span class="typed-cursor" aria-hidden="true"></span></h2>
+
+    <strong style="color: rgb(255, 238, 0); font-size: 16px; font-family: 'Rowdies';">
+      You Info: <a id="geoip">Loading your address....</a>
+    </strong>
+    <br/>
+    <a id="geoinfo"></a>
+    <hr class="New">
+
+    <!-- Social Links -->
+    <div class="MangXaHoiFtThanhDieu">
+      <u class="NameFtThanhDieu">- Social Network -</u><br/><br/>
+      <a id="Facebook"><div class="Facebook"><i class="bi bi-facebook">&nbsp;</i>Facebook (507K+)</div></a><br/>
+      <a id="Youtube"><div class="Youtube"><i class="bi bi-youtube">&nbsp;</i>Youtube (3K+)</div></a><br/>
+      <a id="Discord"><div class="Discord"><i class="bi bi-discord">&nbsp;</i>Discord (800+)</div></a><br/>
+      <a id="Instagram"><div class="Instagram"><i class="bi bi-instagram">&nbsp;</i>Instagram (7+)</div></a>
+    </div>
+    <hr class="New">
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container skills">
+        <div class="row">
+          <div class="col-12">
+            <u class="NameFtThanhDieu">- Skill Language -</u>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="skill-box">
+            <div class="skill">
+              <div class="skill-name">HTML/CSS</div>
+              <div class="skill-bar"><div class="skill-per color1" per="76"></div></div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">MySql</div>
+              <div class="skill-bar"><div class="skill-per color3" per="9"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+          <div class="skill-box">
+            <div class="skill">
+              <div class="skill-name">Lua</div>
+              <div class="skill-bar"><div class="skill-per color1" per="68"></div></div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">PHP</div>
+              <div class="skill-bar"><div class="skill-per color2" per="12"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="New">
+
+    <!-- About Me -->
+    <u class="NameFtThanhDieu">- About Me -</u>
+    <div class="AboutMe">
+      <article>
+        <p id="ThanhDieuAbout_1" class="BoxAboutMe">Nothing</p>
+        <p id="ThanhDieuAbout_2" class="BoxAboutMe">
+          Subscribe to our official Telegram channel to report any bugs related to this website.
+          <a style="color: #6272ff;" href="//t.me/ThanhDieuChannel">click here</a> to contact me.
+        </p>
+      </article>
+    </div>
+    <hr class="New">
+
+    <!-- Footer -->
+    <footer class="Cuoi Trang">
+      <p class="ThanhDieuFtCopyright">
+        <span style="font-family: Monomaniac One;" class="copyright">
+          Created by <a href="https://facebook.com/100035052735014" style="text-decoration: none;">
+            <u style="color: aliceblue;">ThanhDieu ♡</u>
+          </a><br>
+          <strong>All rights reserved - © 2022</strong>
+        </span>
+      </p>
+    </footer>
+  </div>
+
+  <div id="Toast">𝘿𝙚𝙨𝙞𝙜𝙣𝙚𝙧 𝙗𝙮 𝙏𝙝𝙖𝙣𝙝𝘿𝙞𝙚𝙪 𝑽3</div>
+
+  <!-- JS Libraries -->
+  <script src="./public/src/t/libs/typed.js@2.0.12/typed.js"></script>
+  <script src="./public/src/t/libs/sweetalert2@11/sweetalert2.js"></script>
+  <script src="./public/src/t/libs/jquery-v3.4.1/jquery.min.js"></script>
+  <script src="./public/src/t/js/particles.js"></script>
+  <script src="./public/src/t/js/app.js"></script>
+  <script src="./public/src/t/js/index.js"></script>
+</body>
+  </html>      <img class="Blob" src="./public/src/t/img/avatar.jpg" alt="ThanhDieuTV">
     </p>
     <h2 class="NameFtThanhDieu" id="userName">
       Vương Thanh Diệu&nbsp;<img class="verify" src="./public/src/t/img/verify.png" alt="Verified"/>
