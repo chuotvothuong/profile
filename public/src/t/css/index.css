@@ -221,32 +221,39 @@ footer {
   #bgVideo {
     object-fit: contain; /* giữ nguyên video, không mất nội dung */
   }
-   .TieuSu {
+.TieuSu {
   text-align: center;  /* Căn ngang giữa */
   display: block;
   width: 100%;
   margin-top: 10px;
   font-size: 20px;     /* Có thể tăng/giảm */
-   }
-   /* Căn giữa tiêu đề About Me */
+}
+
+/* Hiệu ứng 7 màu cho tiêu đề About Me */
 .NameFtThanhDieu {
   display: block;
   text-align: center;
-  color: #00aaff; /* Màu xanh dương */
+  animation: rainbow 3s linear infinite;
 }
 
-/* Căn giữa nội dung About Me */
-.AboutMe {
-  padding: 20px;
-  text-align: center;
-}
-
-/* Đoạn văn trong About Me */
+/* Hiệu ứng 7 màu cho nội dung About Me */
 .BoxAboutMe {
   margin-bottom: 10px;
   display: inline-block;
   max-width: 600px;
-  color: #00aaff; /* Màu xanh dương cho text */
+  animation: rainbow 3s linear infinite;
+}
+
+/* Định nghĩa hiệu ứng cầu vồng */
+@keyframes rainbow {
+  0% { color: #ff0000; }    /* Đỏ */
+  14% { color: #ff7f00; }   /* Cam */
+  28% { color: #ffff00; }   /* Vàng */
+  42% { color: #00ff00; }   /* Xanh lá */
+  57% { color: #0000ff; }   /* Xanh dương */
+  71% { color: #4b0082; }   /* Chàm */
+  85% { color: #9400d3; }   /* Tím */
+  100% { color: #ff0000; }  /* Quay lại đỏ */
 }
    hr.New {
   border: none;
