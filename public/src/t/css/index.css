@@ -7,10 +7,15 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%; /* đảm bảo 100% chiều cao màn hình */
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background-color: transparent; /* bỏ nền đen, để video hiển thị */
+  overflow-x: hidden; /* tránh tràn ngang */
 }
 
 /* =========================
@@ -171,8 +176,8 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;  /* full chiều ngang */
+  height: 100%; /* full chiều cao */
   object-fit: cover;
   z-index: -3; /* dưới cả particles */
-  }
+}
