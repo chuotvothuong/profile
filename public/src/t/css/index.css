@@ -133,7 +133,7 @@ body {
 /* Khung cho chữ NameFtThanhDieu */
 .NameFtThanhDieu {
   display: inline-block;
-  padding: 6px 14px;
+  padding: 5px 10px;
   margin-top: 8px;
   font-size: 22px;
   font-weight: bold;
