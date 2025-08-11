@@ -21,61 +21,26 @@ body {
 /* =========================
    HEADER / NAVIGATION
 ========================= */
-/* Top navigation: HOME trái, FPS phải */
-.Topnav {
+#home-label {
   position: fixed;
-  top: 10px;            /* cách mép trên 10px */
-  left: 0;
-  right: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: space-between; /* HOME trái, FPS phải */
-  align-items: center;
-  padding: 0 20px;      /* khoảng cách trái phải */
-  background-color: transparent;  /* hoặc rgba(...) nếu muốn nền mờ */
-  pointer-events: none; /* cho phép click từng a, nhưng container ko chặn */
-}
-
-/* Make the links active for pointer events */
-.Topnav a {
-  pointer-events: auto; /* bật click cho <a> */
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
+  top: 10px;
+  left: 15px;
+  font-size: 20px;
   font-weight: bold;
-  font-size: 14px;
-  background: rgba(0,0,0,0.15);   /* nhẹ nhàng, có thể đổi thành transparent */
-  border-radius: 6px;
+  color: #00ffff; /* xanh neon */
+  text-shadow: 0 0 8px #00ffff;
+  z-index: 1000;
 }
 
-/* Tùy chỉnh riêng cho HOME (trái) */
-.Topnav #homeLink {
-  margin-left: 4px;
-}
-
-/* Tùy chỉnh riêng cho FPS (phải) */
-.Topnav #fpsLink {
-  margin-right: 4px;
-  color: #ff6b6b; /* bạn có thể đổi màu FPS nếu muốn nổi hơn */
-}
-
-/* Hiệu ứng hover */
-.Topnav a:hover {
-  background: rgba(255,255,255,0.06);
-  transform: translateY(-1px);
-  transition: all 0.15s ease;
-}
-
-/* Responsive: trên màn hình nhỏ giảm padding và font */
-@media screen and (max-width: 480px) {
-  .Topnav {
-    top: 6px;
-    padding: 0 10px;
-  }
-  .Topnav a {
-    font-size: 13px;
-    padding: 5px 8px;
-  }
+#fps {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff00ff; /* hồng neon */
+  text-shadow: 0 0 8px #ff00ff;
+  z-index: 1000;
 }
 /* =========================
    PROFILE AVATAR
