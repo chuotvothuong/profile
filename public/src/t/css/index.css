@@ -119,7 +119,7 @@ body {
 
 /* Màu gốc khi KHÔNG có rainbow */
 .Facebook:not(.rainbow) { background: #3b5998; }
-.Youtube:not(.rainbow) { background: #ff0000; }
+.TikTok:not(.rainbow) { background: #ff0000; }
 .Discord:not(.rainbow) { background: #7289da; }
 .Instagram:not(.rainbow) { background: #e1306c; }
 
