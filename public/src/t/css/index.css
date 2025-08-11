@@ -221,4 +221,11 @@ footer {
   #bgVideo {
     object-fit: contain; /* giữ nguyên video, không mất nội dung */
   }
+   .TieuSu {
+  text-align: center;  /* Căn ngang giữa */
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 20px;     /* Có thể tăng/giảm */
+   }
 }
