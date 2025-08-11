@@ -104,6 +104,18 @@ body {
 /* =========================
    SOCIAL LINKS
 ========================= */
+.NameFtThanhDieu {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000) border-box;
+  background-size: 1400% 1400%;
+  animation: rainbow 6s ease infinite;
+  -webkit-background-clip: border-box;
+  color: white;
+}
 .MangXaHoiFtThanhDieu {
   text-align: center;
 }
