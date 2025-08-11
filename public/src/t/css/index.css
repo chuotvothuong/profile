@@ -228,4 +228,14 @@ footer {
   margin-top: 10px;
   font-size: 20px;     /* Có thể tăng/giảm */
    }
+   .AboutMe {
+  padding: 20px;
+  text-align: center; /* Căn giữa nội dung */
+}
+
+.BoxAboutMe {
+  margin-bottom: 10px;
+  display: inline-block; /* Giúp căn giữa đoạn văn bản gọn hơn */
+  max-width: 600px;      /* Giới hạn chiều rộng để đọc dễ hơn */
+}
 }
