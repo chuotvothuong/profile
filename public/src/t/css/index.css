@@ -258,28 +258,4 @@ footer {
     max-width: 600px;
     animation: rainbow 3s linear infinite;
   }
-  hr.New {
-    border: none;
-    height: 4px;
-    background: linear-gradient(
-      270deg,
-      red,
-      orange,
-      yellow,
-      green,
-      cyan,
-      blue,
-      violet,
-      red
-    );
-    background-size: 1400% 1400%;
-    animation: rainbowHr 8s ease infinite;
-    margin: 20px auto;
-    border-radius: 4px;
-  }
-  @keyframes rainbowHr {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-   }
+}
