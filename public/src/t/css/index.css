@@ -142,6 +142,36 @@ footer {
   text-align: center;
 }
 
+/* Rainbow Gradient Animation */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.rainbow {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  animation: rainbow 6s ease infinite;
+  color: #fff !important;
+  font-weight: bold;
+  border: none;
+}
+
+/* Giữ lại các style cũ */
+.MangXaHoiFtThanhDieu a div {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.MangXaHoiFtThanhDieu a div:hover {
+  transform: scale(1.05);
+}
+
 /* =========================
    TOAST MESSAGE
 ========================= */
