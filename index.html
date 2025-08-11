@@ -25,8 +25,9 @@
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <!-- Canvas Trái tim 7 màu -->
-  <canvas id="heartsCanvas"></canvas>
+  <!-- Label Home & FPS -->
+  <div id="home-label">Home</div>
+  <div id="fps">0</div>
 
   <!-- Nội dung trang -->
   <div class="BlurWebs">
@@ -39,82 +40,28 @@
     </div>
 
     <!-- Social Network -->
+    <div class="SocialNetworkTitle">- Social Network -</div>
     <div class="MangXaHoiFtThanhDieu">
-      <!-- Thêm link mạng xã hội của bạn -->
-      <a href="https://facebook.com" target="_blank"><div class="Facebook rainbow">Facebook</div></a>
-      <a href="https://tiktok.com" target="_blank"><div class="TikTok rainbow">TikTok</div></a>
+      <a href="https://facebook.com/chuotxyzabc" target="_blank"><div class="Facebook rainbow">Facebook(2xx)</div></a>
+      <a href="https://tiktok.com/@chuotarm2010" target="_blank"><div class="TikTok rainbow">TikTok(1k+)</div></a>
       <a href="https://discord.com" target="_blank"><div class="Discord rainbow">Discord</div></a>
       <a href="https://instagram.com" target="_blank"><div class="Instagram rainbow">Instagram</div></a>
     </div>
   </div>
 
-  <!-- Script trái tim 7 màu -->
+  <!-- Script FPS -->
   <script>
-    const canvas = document.getElementById("heartsCanvas");
-    const ctx = canvas.getContext("2d");
-    let hearts = [];
+    let fpsDisplay = document.getElementById("fps");
+    let lastLoop = new Date();
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    function updateFPS() {
+      const thisLoop = new Date();
+      const fps = 1000 / (thisLoop - lastLoop);
+      lastLoop = thisLoop;
+      fpsDisplay.textContent = fps.toFixed(1);
+      requestAnimationFrame(updateFPS);
     }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    function createHeart(speed, size, pathPhase) {
-      return { x: 0, y: 0, speed, size, pathPhase };
-    }
-
-    function drawHeart(x, y, size, hue) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(size, size);
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.bezierCurveTo(0, -3, -5, -15, -15, -15);
-      ctx.bezierCurveTo(-35, -15, -35, 10, -35, 10);
-      ctx.bezierCurveTo(-35, 25, -20, 40, 0, 55);
-      ctx.bezierCurveTo(20, 40, 35, 25, 35, 10);
-      ctx.bezierCurveTo(35, 10, 35, -15, 15, -15);
-      ctx.bezierCurveTo(5, -15, 0, -3, 0, 0);
-      const gradient = ctx.createLinearGradient(-35, -15, 35, 55);
-      gradient.addColorStop(0, `hsl(${hue}, 100%, 50%)`);
-      gradient.addColorStop(1, `hsl(${(hue + 60) % 360}, 100%, 50%)`);
-      ctx.fillStyle = gradient;
-      ctx.fill();
-      ctx.restore();
-    }
-
-    function updateHearts() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const t = Date.now() / 1000;
-      hearts.forEach((heart, i) => {
-        const perimeter = (canvas.width + canvas.height) * 2;
-        let pos = (t * heart.speed + heart.pathPhase) % perimeter;
-        if (pos < canvas.width) {
-          heart.x = pos;
-          heart.y = 20 + Math.sin(pos / 50) * 5;
-        } else if (pos < canvas.width + canvas.height) {
-          heart.x = canvas.width - 20;
-          heart.y = pos - canvas.width;
-        } else if (pos < canvas.width * 2 + canvas.height) {
-          heart.x = canvas.width - (pos - canvas.width - canvas.height);
-          heart.y = canvas.height - 20 + Math.sin(pos / 50) * 5;
-        } else {
-          heart.x = 20;
-          heart.y = canvas.height - (pos - (canvas.width * 2 + canvas.height));
-        }
-        let hue = (t * 100 + i * 20) % 360;
-        drawHeart(heart.x, heart.y, heart.size, hue);
-      });
-      requestAnimationFrame(updateHearts);
-    }
-
-    for (let i = 0; i < 20; i++) {
-      hearts.push(createHeart(Math.random() * 50 + 30, Math.random() * 0.5 + 0.3, Math.random() * 500));
-    }
-
-    updateHearts();
+    updateFPS();
   </script>
 </body>
 
