@@ -252,18 +252,7 @@ body {
 .color1 { background: #00ffff; }
 .color2 { background: #ff00ff; }
 .color3 { background: #ffff00; }
-
-/* =========================
-   ABOUT ME
-========================= */
-.AboutMe {
-  padding: 20px;
 }
-
-.BoxAboutMe {
-  margin-bottom: 10px;
-}
-
 /* =========================
    FOOTER
 ========================= */
