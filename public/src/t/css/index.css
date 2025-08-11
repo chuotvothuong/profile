@@ -51,12 +51,17 @@ body {
    PROFILE AVATAR
 ========================= */
 .BlurWebs {
-  text-align: left;
+  text-align: center;
   position: relative;
 }
-
 .avatar-frame {
   position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
 }
 
 .avatar-img {
@@ -64,12 +69,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
+  width: 85%;   /* Thu nhỏ avatar */
   height: 85%;
   object-fit: cover;
-  filter: brightness(1.05) contrast(1.1);
   border-radius: 50%;
-   }
+  z-index: 2;
+}
 
 .frame-img {
   position: absolute;
