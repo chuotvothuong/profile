@@ -1,40 +1,122 @@
+/* ========== VARIABLES ========== */
 :root {
   --bgColor: #223344;
   --bgColor2: #090a0f;
-  --accentColor: #FFF;
-  --fontMain: 'Concert One', sans-serif;
-  --borderRadius: 10px;
-  --boxShadowColor: #33FFFF;
-  --transition: 0.5s;
+  --accentColor: #fff;
+  --font: 'Karla', sans-serif;
+  --delay: 0.3s;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
-body { background: #000; font-family: var(--fontMain); }
+/* ========== GLOBAL ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-/* Scrollbar */
+body {
+  background-color: #000;
+  font-family: 'Concert One', sans-serif;
+}
+
+.Border {
+  font-size: 12px;
+  min-height: 100%;
+  text-align: center;
+  background: #000;
+  margin: 8px;
+  border: 2px double red;
+  border-radius: 15px;
+  animation: bodyborder 5s infinite;
+}
+
+/* ========== SCROLLBAR ========== */
 ::-webkit-scrollbar { width: 8px; height: 15px; }
 ::-webkit-scrollbar-track { box-shadow: inset 0 0 5px rgb(106, 96, 255); border-radius: 10px; }
 ::-webkit-scrollbar-thumb { background: rgb(0, 255, 98); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #00ffbc; }
 
-/* Border */
-.Border { text-align: center; background: #000; margin: 8px; border: double 2px red; border-radius: 15px; animation: bodyborder 5s infinite; }
-
-/* Social Buttons */
-.SocialButton {
-  display: block; color: var(--accentColor); border: solid 2px var(--accentColor);
-  border-radius: var(--borderRadius); font-size: 1rem; text-align: center;
-  margin: 0 10px 10px; padding: 10px; text-decoration: none;
+/* ========== AVATAR ========== */
+.Blob {
+  background: black;
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  box-shadow: 0 1px 13px lime;
+  animation: pulse 2s infinite;
+  margin: 50px auto 10px;
 }
-.Facebook { background: linear-gradient(139deg, rgb(73,89,255) 50%, rgba(0,198,255,0.84) 100%); }
+.verify { height: 17px; margin-bottom: -2px; }
+
+/* ========== TEXTS ========== */
+#userName {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Pattaya', sans-serif;
+}
+.TieuSu { color: #fff; font-family: 'Potta One'; font-size: 17px; font-weight: bold; }
+
+/* ========== SOCIAL BUTTONS ========== */
+.MangXaHoiFtThanhDieu div {
+  border: 2px solid var(--accentColor);
+  border-radius: 10px;
+  font-family: 'Righteous';
+  color: var(--accentColor);
+  padding: 10px;
+  margin: 0 auto 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.MangXaHoiFtThanhDieu div:hover { transform: translateY(-3px); }
+@media (max-width: 768px) { .MangXaHoiFtThanhDieu div { width: 65%; } }
+@media (min-width: 769px) { .MangXaHoiFtThanhDieu div { width: 30%; } }
+
+.Facebook { background: linear-gradient(139deg, rgb(73, 89, 255) 50%, rgba(0, 198, 255, 0.84) 100%); }
 .Youtube { background: linear-gradient(138deg, rgba(221,105,105,1) 0%, rgba(235,49,43,1) 66%); }
 .Discord { background: linear-gradient(139deg, rgba(88,101,242,1) 41%, rgba(152,100,241,1) 85%); }
 .Instagram { background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); }
 
-/* Avatar */
-.Blob { background: black; border-radius: 50%; margin: 50px auto 10px; height: 140px; width: 140px; object-fit: cover; animation: pulse 2s infinite; }
-.verify { height: 17px; margin-bottom: -2px; }
+/* ========== LOADER ========== */
+.LoaderCover {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at center, #2f3136 0%, black 100%);
+  z-index: 9999; display: flex; justify-content: center; align-items: center;
+}
+.lds-ripple { display: inline-block; position: relative; width: 80px; height: 80px; }
+.lds-ripple div {
+  position: absolute; border: 4px solid #fff; border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0,0.1,0.2,1) infinite;
+}
+.lds-ripple div:nth-child(2) { animation-delay: -0.5s; }
 
+/* ========== FOOTER ========== */
+.Cuoi { font-size: 16px; padding: 40px 0; color: #aaa; text-align: center; }
+
+/* ========== ANIMATIONS ========== */
+@keyframes pulse {
+  0% { transform: scale(0.99); box-shadow: 0 1px 13px cyan; }
+  50% { transform: scale(1.1); box-shadow: 0 1px 13px lime; }
+  100% { transform: scale(0.99); box-shadow: 0 1px 13px magenta; }
+}
+@keyframes lds-ripple {
+  0%,4.9% { top: 36px; left: 36px; width: 0; height: 0; opacity: 0; }
+  5% { top: 36px; left: 36px; width: 0; height: 0; opacity: 1; }
+  100% { top: 0; left: 0; width: 72px; height: 72px; opacity: 0; }
+}
+@keyframes bodyborder {
+  20%{border-color: rgb(0, 60, 255);}
+  40%{border-color: lime;}
+  60%{border-color: red;}
+  80%{border-color: yellow;}
+  90%{border-color: rgb(255, 0, 221);}
+  }
 /* Name & Bio */
 #userName { color: #fff; font-size: 20px; font-weight: bold; text-align: center; font-family: 'Pattaya'; }
 .TieuSu { text-align: center; color: #fff; font-family: 'Potta One'; font-size: 17px; font-weight: bold; }
