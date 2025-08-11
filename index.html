@@ -15,16 +15,6 @@
   <meta property="og:url" content="//thanhdieu.com">
   <meta property="og:image" content="./public/src/t/img/avatar.jpg">
   <meta name="theme-color" content="#00FFFF">
-  <style>
-    /* Thu nhỏ huy hiệu xanh */
-    .verify {
-      width: 20px;
-      height: auto;
-      vertical-align: middle;
-      margin-left: 5px;
-      display: inline-block;
-    }
-  </style>
 </head>
 <body class="Border">
   <!-- Video Background -->
@@ -50,7 +40,6 @@
             <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">
             <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">
         </div>
-        <img class="Blob" src="./public/src/t/img/avatar.jpg" alt="ThanhDieuTV">
     </div>
 
     <h2 class="NameFtThanhDieu" id="userName">
@@ -127,12 +116,6 @@
       typeSpeed: 60,
       backSpeed: 30,
       loop: true
-    });
-
-    // Lấy IP và hiển thị vị trí (GeoIP)
-    $.getJSON("https://ipapi.co/json/", function(data) {
-      $("#geoip").text(`${data.city}, ${data.country_name}`);
-      $("#geoinfo").text(`Your IP: ${data.ip}`);
     });
 
     // Xử lý toast thông báo
