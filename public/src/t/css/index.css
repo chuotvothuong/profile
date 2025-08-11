@@ -75,13 +75,13 @@ body {
 /* Điều chỉnh khung avatar */
 .avatar-frame {
   position: relative;
-  width: 200px; /* Kích thước bằng với ảnh blob */
-  height: 200px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
-  z-index: 2; /* Đảm bảo khung nổi lên trên */
-  box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+  z-index: 2;
+  box-shadow: 0 0 25px rgba(0, 170, 255, 0.8); /* làm sáng hơn */
 }
 
 /* Ảnh đại diện bên trong */
@@ -89,6 +89,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(1.05) contrast(1.1); /* ăn màu với khung hơn */
 }
 
 /* Khung VIP */
@@ -101,12 +102,13 @@ body {
   object-fit: contain;
   animation: rotate 15s linear infinite;
   z-index: 3;
+  mix-blend-mode: screen; /* hòa màu với ảnh */
 }
 
 /* Ảnh blob bên ngoài */
 .Blob {
-  width: 200px; /* Cùng kích thước với avatar-frame */
-  height: 200px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
@@ -114,8 +116,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  filter: blur(5px) brightness(0.8);
-  opacity: 0.7;
+  filter: blur(8px) brightness(0.9) saturate(1.2); /* mờ và ăn màu hơn */
+  opacity: 0.6;
 }
 
 /* Hiệu ứng xoay khung */
@@ -343,4 +345,4 @@ footer {
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-}
+   }
