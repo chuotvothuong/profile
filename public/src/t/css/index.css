@@ -122,13 +122,13 @@ body {
   opacity: 0.9;
 }
 
-/* Giữ nguyên màu gốc khi KHÔNG có rainbow */
+/* Giữ màu gốc khi không có rainbow */
 .Facebook:not(.rainbow) { background: #3b5998; }
 .Youtube:not(.rainbow) { background: #ff0000; }
 .Discord:not(.rainbow) { background: #7289da; }
 .Instagram:not(.rainbow) { background: #e1306c; }
 
-/* Nền 7 màu cho class rainbow */
+/* Nền 7 màu */
 .rainbow {
   background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
   background-size: 1400% 1400%;
@@ -136,15 +136,6 @@ body {
   color: #fff !important;
   font-weight: bold;
   border: none;
-}
-
-.Facebook { background: #3b5998; }
-.Youtube { background: #ff0000; }
-.Discord { background: #7289da; }
-.Instagram { background: #e1306c; }
-
-.MangXaHoiFtThanhDieu a div:hover {
-  opacity: 0.8;
 }
 
 /* =========================
@@ -204,28 +195,6 @@ footer {
   100% { background-position: 0% 50%; }
 }
 
-.rainbow {
-  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
-  background-size: 1400% 1400%;
-  animation: rainbow 6s ease infinite;
-  color: #fff !important;
-  font-weight: bold;
-  border: none;
-}
-
-.MangXaHoiFtThanhDieu a div {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.MangXaHoiFtThanhDieu a div:hover {
-  transform: scale(1.05);
-}
-
 /* =========================
    TOAST MESSAGE
 ========================= */
@@ -275,61 +244,56 @@ footer {
   #bgVideo {
     object-fit: contain;
   }
-.TieuSu {
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  font-size: 20px;
-}
-
-.NameFtThanhDieu {
-  display: block;
-  text-align: center;
-  animation: rainbow 3s linear infinite;
-}
-
-.BoxAboutMe {
-  margin-bottom: 10px;
-  display: inline-block;
-  max-width: 600px;
-  animation: rainbow 3s linear infinite;
-}
-
-@keyframes rainbow {
-  0% { color: #ff0000; }
-  14% { color: #ff7f00; }
-  28% { color: #ffff00; }
-  42% { color: #00ff00; }
-  57% { color: #0000ff; }
-  71% { color: #4b0082; }
-  85% { color: #9400d3; }
-  100% { color: #ff0000; }
-}
-
-hr.New {
-  border: none;
-  height: 4px;
-  background: linear-gradient(
-    270deg,
-    red,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet,
-    red
-  );
-  background-size: 1400% 1400%;
-  animation: rainbowHr 8s ease infinite;
-  margin: 20px auto;
-  border-radius: 4px;
-}
-
-@keyframes rainbowHr {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+  .TieuSu {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  .NameFtThanhDieu {
+    display: block;
+    text-align: center;
+    animation: rainbow 3s linear infinite;
+  }
+  .BoxAboutMe {
+    margin-bottom: 10px;
+    display: inline-block;
+    max-width: 600px;
+    animation: rainbow 3s linear infinite;
+  }
+  @keyframes rainbow {
+    0% { color: #ff0000; }
+    14% { color: #ff7f00; }
+    28% { color: #ffff00; }
+    42% { color: #00ff00; }
+    57% { color: #0000ff; }
+    71% { color: #4b0082; }
+    85% { color: #9400d3; }
+    100% { color: #ff0000; }
+  }
+  hr.New {
+    border: none;
+    height: 4px;
+    background: linear-gradient(
+      270deg,
+      red,
+      orange,
+      yellow,
+      green,
+      cyan,
+      blue,
+      violet,
+      red
+    );
+    background-size: 1400% 1400%;
+    animation: rainbowHr 8s ease infinite;
+    margin: 20px auto;
+    border-radius: 4px;
+  }
+  @keyframes rainbowHr {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
