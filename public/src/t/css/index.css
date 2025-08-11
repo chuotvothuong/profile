@@ -114,7 +114,28 @@ body {
   margin: 5px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform 0.2s ease, opacity 0.3s;
+}
+
+.MangXaHoiFtThanhDieu a div:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Giữ nguyên màu gốc khi KHÔNG có rainbow */
+.Facebook:not(.rainbow) { background: #3b5998; }
+.Youtube:not(.rainbow) { background: #ff0000; }
+.Discord:not(.rainbow) { background: #7289da; }
+.Instagram:not(.rainbow) { background: #e1306c; }
+
+/* Nền 7 màu cho class rainbow */
+.rainbow {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  animation: rainbow 6s ease infinite;
+  color: #fff !important;
+  font-weight: bold;
+  border: none;
 }
 
 .Facebook { background: #3b5998; }
