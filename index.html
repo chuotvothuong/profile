@@ -205,7 +205,7 @@
     transform: translateX(-50%);
     width: 95%;
     max-width: 700px;
-    background: rgba(0, 0, 0, 0.85);
+    background: transparent; /* Nền trong suốt */
     color: #fff;
     font-size: 18px;
     font-weight: bold;
@@ -214,7 +214,6 @@
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 15px; /* Bo tròn góc */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Đổ bóng */
 ">
     <div style="display: flex; align-items: center;">
         <div style="flex: 1; overflow: hidden; white-space: nowrap;">
@@ -243,14 +242,6 @@
     50% { transform: scale(1.15); color: #ffcc00; }
 }
 
-/* Đổi màu nền theo nhịp */
-@keyframes bgBeat {
-    0%, 100% { background-color: rgba(0, 0, 0, 0.85); }
-    25% { background-color: #ff0057; }
-    50% { background-color: #00d2ff; }
-    75% { background-color: #ffcc00; }
-}
-
 /* Rung icon */
 @keyframes shake {
     0% { transform: rotate(0deg); }
@@ -264,9 +255,6 @@
 }
 .beating {
     animation: beat 0.6s ease-in-out infinite, scrollText 12s linear infinite;
-}
-.party {
-    animation: bgBeat 1s linear infinite;
 }
 </style>
 
@@ -282,7 +270,6 @@ let isPlaying = false;
 const audio = document.getElementById("bgMusic");
 const songNameDisplay = document.getElementById("songName");
 const playPauseBtn = document.getElementById("playPauseBtn");
-const musicBar = document.getElementById("musicBar");
 
 function updateSongName() {
     songNameDisplay.textContent = "🎶 Đang phát: " + playlist[currentSong].name + " 🎶";
@@ -301,7 +288,6 @@ document.addEventListener("click", function() {
         playPauseBtn.textContent = "🔊";
         playPauseBtn.classList.add("shaking");
         songNameDisplay.classList.add("beating");
-        musicBar.classList.add("party");
     }
 }, { once: true });
 
@@ -314,14 +300,12 @@ playPauseBtn.addEventListener("click", function(e) {
         playPauseBtn.textContent = "🔇";
         playPauseBtn.classList.remove("shaking");
         songNameDisplay.classList.remove("beating");
-        musicBar.classList.remove("party");
     } else {
         audio.play();
         isPlaying = true;
         playPauseBtn.textContent = "🔊";
         playPauseBtn.classList.add("shaking");
         songNameDisplay.classList.add("beating");
-        musicBar.classList.add("party");
     }
 });
 
