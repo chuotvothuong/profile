@@ -1,178 +1,88 @@
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
+  background: transparent;
   overflow-x: hidden;
 }
 
-/* VIDEO NỀN */
-#bgVideo {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -3;
+/* HEADER */
+#home-label {
+  position: fixed; top: 10px; left: 15px;
+  font-size: 20px; font-weight: bold;
+  color: #00ffff; text-shadow: 0 0 8px #00ffff;
+  z-index: 1000;
 }
-
-/* PARTICLES */
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-/* NỘI DUNG CHÍNH CĂN GIỮA */
-.main-content {
-  min-height: 100vh;
-  display: flex;
-  align-items: center; 
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding-bottom: 80px; /* chừa chỗ cho footer */
+#fps {
+  position: fixed; top: 10px; right: 15px;
+  font-size: 18px; font-weight: bold;
+  color: #ff00ff; text-shadow: 0 0 8px #ff00ff;
+  z-index: 1000;
 }
 
 /* AVATAR */
-.avatar-container {
-  display: flex;
-  justify-content: center;
-}
-
-.avatar-frame {
-  position: relative;
-  width: 240px;
-  height: 240px;
-}
-
+.BlurWebs { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 60px; }
+.avatar-container { display: flex; justify-content: center; }
+.avatar-frame { position: relative; width: 180px; height: 180px; }
 .avatar-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 85%;
-  height: 85%;
-  object-fit: cover;
-  border-radius: 50%;
-  z-index: 1;
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 85%; height: 85%; object-fit: cover; border-radius: 50%; z-index: 1;
 }
-
 .frame-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 2;
-  pointer-events: none;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: contain; z-index: 2; pointer-events: none;
 }
+.avatar-frame:hover { transform: scale(1.05); transition: all 0.3s ease; }
 
-.verify {
-  width: 20px;
-  margin-left: 3px;
-  vertical-align: middle;
-}
-
-/* TÊN 7 MÀU */
-.NameFtThanhDieu {
-  font-size: 26px;
+/* WELCOME TEXT */
+.TieuSu {
   font-weight: bold;
+  font-size: 22px;
   background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
   background-size: 1400% 1400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rainbow 6s ease infinite, glow 2s ease-in-out infinite;
+  animation: rainbow 10s ease infinite;
   margin-top: 15px;
 }
 
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #00ffff; }
-  50% { text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #00ffff; }
-  100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #00ffff; }
-}
-
-/* MẠNG XÃ HỘI */
-.MangXaHoiFtThanhDieu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
+/* SOCIAL LINKS */
+.MangXaHoiFtThanhDieu { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
 .MangXaHoiFtThanhDieu a {
-  padding: 10px 18px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
+  display: inline-block; padding: 10px 18px; font-size: 16px; font-weight: bold;
+  color: #fff; border-radius: 8px; text-decoration: none;
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%; animation: rainbow 6s ease infinite;
+}
+.MangXaHoiFtThanhDieu a:hover { transform: scale(1.05); transition: 0.2s; }
+
+/* FOOTER */
+footer.Cuoi {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
+  text-align: center; z-index: 9999;
+}
+footer.Cuoi .ThanhDieuFtCopyright { color: #00ffff; text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff; }
+footer.Cuoi .rainbow-text {
   background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
   background-size: 1400% 1400%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   animation: rainbow 6s ease infinite;
-  transition: transform 0.2s ease;
 }
 
-.MangXaHoiFtThanhDieu a:hover {
-  transform: scale(1.05);
-}
-
-/* HIỆU ỨNG 7 MÀU CHẠY */
+/* RAINBOW ANIMATION */
 @keyframes rainbow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* FOOTER DÍNH ĐÁY */
-footer.Cuoi {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  background: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
-  z-index: 9999;
-}
-
-footer.Cuoi .ThanhDieuFtCopyright {
-  color: #00ffff;
-  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
-}
-
-footer.Cuoi .rainbow-text {
-  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
-  background-size: 1400% 1400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 6s ease infinite;
-}
-
-/* MOBILE */
-@media screen and (max-width: 768px) {
-  .NameFtThanhDieu {
-    font-size: 18px;
-  }
-  .avatar-frame {
-    width: 180px;
-    height: 180px;
-  }
-}
+/* PARTICLES */
+#particles-js {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+    } 
