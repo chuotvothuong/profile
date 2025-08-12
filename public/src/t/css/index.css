@@ -354,19 +354,21 @@ footer.Cuoi a {
 
 /* --- Footer dính đáy với hiệu ứng đẹp --- */
 footer.Cuoi {
-  position: fixed;      /* Cố định ở đáy màn hình */
+  position: fixed;          /* Dính đáy */
   bottom: 0;
   left: 0;
   width: 100%;
-  text-align: center;   /* Căn giữa nội dung */
+  display: flex;            /* Căn giữa bằng flexbox */
+  justify-content: center;  /* Căn giữa ngang */
+  align-items: center;      /* Căn giữa dọc trong footer */
   padding: 10px 0;
   background: rgba(0, 0, 0, 0.4); /* Nền mờ */
   box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
   z-index: 9999;
+  text-align: center;       /* Đảm bảo chữ luôn giữa */
 }
 
 footer.Cuoi .ThanhDieuFtCopyright {
-  display: inline-block;
   margin: 0;
   color: #00ffff;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
