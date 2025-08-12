@@ -593,7 +593,7 @@ body {
 .projectItem {
     opacity: 0;
     transition-delay: 0.4s;
-    transform: translateY(80px);
+    transform: translateY(150px);
     display: flex;
     background-color: var(--item-bg-color);
     border-radius: 8px;
