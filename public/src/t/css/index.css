@@ -312,4 +312,33 @@ footer {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+   footer.Cuoi {
+  position: fixed;      /* Giữ cố định */
+  bottom: 0;            /* Nằm ở đáy */
+  left: 0;
+  width: 100%;          /* Chiếm hết chiều ngang */
+  text-align: center;   /* Căn giữa nội dung */
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.4); /* Nền mờ */
+  color: #fff;
+  z-index: 9999;        /* Luôn nằm trên */
+}
+
+footer.Cuoi a {
+  text-decoration: none;
+}
+
+.rainbow-text {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s ease infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 }
