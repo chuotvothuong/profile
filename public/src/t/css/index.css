@@ -126,6 +126,20 @@ body {
 .MangXaHoiFtThanhDieu a:hover {
   transform: scale(1.05);
    }
+/* Nền 7 màu */
+.MangXaHoiFtThanhDieu a {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  animation: rainbow 6s ease infinite;
+  border: none;
+}
+
+/* Hiệu ứng 7 màu chạy */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* Màu gốc khi KHÔNG có rainbow */
 .Facebook:not(.rainbow) { background: #3b5998; }
