@@ -120,26 +120,29 @@ body {
 ========================= */
 /* Khung cho chữ NameFtThanhDieu */
 .NameFtThanhDieu {
-  display: inline-block;
-  padding: 5px 10px;
+  display: block;
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
-  color: #fff;
-  border: 2px solid #00ffff;  /* viền màu xanh neon */
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.4); /* nền mờ giúp dễ đọc */
   text-align: center;
-  animation: glow 2s ease-in-out infinite;
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s ease infinite, glow 2s ease-in-out infinite;
 }
 
-/* Hiệu ứng phát sáng */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes glow {
-  0% { box-shadow: 0 0 5px #00ffff; }
-  50% { box-shadow: 0 0 15px #00ffff; }
-  100% { box-shadow: 0 0 5px #00ffff; }
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #00ffff; }
+  50% { text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #00ffff; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #00ffff; }
 }
-
 /* Responsive: màn hình nhỏ giảm kích thước */
 @media screen and (max-width: 480px) {
   .NameFtThanhDieu {
