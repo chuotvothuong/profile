@@ -1,110 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Trang chủ thanhdieu.com, chuyên chia sẻ thủ thuật không gian mạng.">
-  <meta name="author" content="ThanhDieuTV">
-  <meta name="keywords" content="ThanhDieu. Com, Profile card, Vương Thanh Diệu, ThanhDieuTV, thanh diệu tv">
-  <link rel="shortcut icon" href="./public/src/t/img/avatar.jpg" type="image/x-icon">
-  <title>𝑱𝒆𝒓𝒓𝒚 𝑬𝒃𝒂𝒏 - 𝑯𝒐𝒎𝒆</title>
-  <link rel="stylesheet" href="./public/src/t/css/index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-  <meta property="og:title" content="𝑱𝒆𝒓𝒓𝒚 𝑬𝒃𝒂𝒏 - 𝑯𝒐𝒎𝒆">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="//thanhdieu.com">
-  <meta property="og:image" content="./public/src/t/img/avatar.jpg">
-  <meta name="theme-color" content="#00FFFF">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jerry Eban</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <!-- Video Background -->
-  <video autoplay muted loop id="bgVideo">
-    <source src="./public/src/t/video/bg.mp4" type="video/mp4">
-  </video>
 
   <!-- Particles Background -->
   <div id="particles-js"></div>
 
-  <!-- Label Home & FPS -->
-  <div id="home-label">Home</div>
-  <div id="fps">0</div>
+  <!-- Video Background -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="./public/src/video/bg.mp4" type="video/mp4" />
+  </video>
 
-  <!-- Nội dung trang -->
-<div class="BlurWebs">
-  <div class="avatar-container">
-    <div class="avatar-frame">
-      <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">
-      <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">
+  <!-- Home + FPS -->
+  <div id="home-label">Home</div>
+  <div id="fps">FPS: 60</div>
+
+  <!-- Profile -->
+  <div class="BlurWebs">
+    <div class="avatar-container">
+      <div class="avatar-frame">
+        <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar" />
+        <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP" />
+      </div>
+    </div>
+
+    <h2 class="NameFtThanhDieu">
+      Jerry Eban <img src="./public/src/t/img/verify.png" class="verify" alt="Verified" />
+    </h2>
+
+    <div class="MangXaHoiFtThanhDieu">
+      <a href="https://facebook.com/chuotxyzabc" target="_blank" class="rainbow">Facebook</a>
+      <a href="https://tiktok.com/@chuotarm2010" target="_blank" class="rainbow">TikTok</a>
+      <a href="https://discord.com" target="_blank" class="rainbow">Discord</a>
+      <a href="https://instagram.com" target="_blank" class="rainbow">Instagram</a>
     </div>
   </div>
 
-  <!-- Tên -->
-  <h2 class="NameFtThanhDieu">
-    Jerry Eban <img src="./public/src/t/img/verify.png" class="verify" alt="Verified">
-  </h2>
-
-  <!-- Social Links -->
-  <div class="MangXaHoiFtThanhDieu">  
-  <a href="https://facebook.com/chuotxyzabc" target="_blank">Facebook (2xx)</a>  
-  <a href="https://tiktok.com/@chuotarm2010" target="_blank">TikTok (1k+)</a>  
-  <a href="https://discord.gg/ma_invite" target="_blank">Discord</a>  
-  <a href="https://instagram.com/ten_tai_khoan" target="_blank">Instagram</a>  
+  <!-- Skills -->
+  <div class="skills">
+    <div class="skill">
+      <div class="skill-name">HTML</div>
+      <div class="skill-bar">
+        <div class="skill-per color1" style="width: 90%"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">CSS</div>
+      <div class="skill-bar">
+        <div class="skill-per color2" style="width: 80%"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">JavaScript</div>
+      <div class="skill-bar">
+        <div class="skill-per color3" style="width: 70%"></div>
+      </div>
+    </div>
   </div>
-</div>
 
-  <!-- Script FPS -->
-  <script>
-    let fpsDisplay = document.getElementById("fps");
-    let lastLoop = new Date();
+  <!-- Footer -->
+  <footer class="Cuoi">
+    <p class="ThanhDieuFtCopyright">
+      <span style="font-family: Monomaniac One;">
+        Created by 
+        <a href="https://facebook.com/100035052735014">
+          <u class="rainbow-text">Jerry ♡</u>
+        </a><br />
+        <strong>All rights reserved - © 2025</strong>
+      </span>
+    </p>
+  </footer>
 
-    function updateFPS() {
-      const thisLoop = new Date();
-      const fps = 1000 / (thisLoop - lastLoop);
-      lastLoop = thisLoop;
-      fpsDisplay.textContent = fps.toFixed(1);
-      requestAnimationFrame(updateFPS);
-    }
-    updateFPS();
-  </script>
+  <script src="particles.min.js"></script>
+  <script src="app.js"></script>
 </body>
-
- <!-- Footer -->
-<footer class="Cuoi">
-  <p class="ThanhDieuFtCopyright">
-    Created by 
-    <a href="https://facebook.com/100035052735014" class="rainbow-text">Jerry ♡</a><br>
-    <strong>All rights reserved - © 2025</strong>
-  </p>
-</footer>
-
-  <div id="Toast">𝑱𝒆𝒓𝒓𝒚 𝑬𝒃𝒂𝒏</div>
-
-  <!-- JS Libraries -->
-  <script src="./public/src/t/libs/typed.js@2.0.12/typed.js"></script>
-  <script src="./public/src/t/libs/sweetalert2@11/sweetalert2.js"></script>
-  <script src="./public/src/t/libs/jquery-v3.4.1/jquery.min.js"></script>
-  <script src="./public/src/t/js/particles.js"></script>
-  <script src="./public/src/t/js/app.js"></script>
-  
-  <!-- Script chính -->
-  <script>
-    // Hiển thị FPS
-    let fpsDisplay = document.getElementById("fps");
-    let lastLoop = new Date();
-    function updateFPS() {
-      const thisLoop = new Date();
-      const fps = 1000 / (thisLoop - lastLoop);
-      lastLoop = thisLoop;
-      fpsDisplay.textContent = fps.toFixed(1);
-      requestAnimationFrame(updateFPS);
-    }
-    updateFPS();
-
-    // Typed.js hiệu ứng gõ chữ
-    new Typed(".TieuSu", {
-      strings: ["𝘞𝘦𝘭𝘤𝘰𝘮𝘦 𝘛𝘰 𝘞𝘦𝘥𝘴𝘪𝘵𝘦 𝘑𝘦𝘳𝘳𝘺", "𝘞𝘪𝘴𝘩𝘪𝘯𝘨 𝘺𝘰𝘶 𝘢𝘭𝘭 𝘢 𝘨𝘰𝘰𝘥 𝘥𝘢𝘺!"],
-      typeSpeed: 60,
-      backSpeed: 30,
+</html>      backSpeed: 30,
       loop: true
     });
 
