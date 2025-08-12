@@ -722,20 +722,49 @@ footer {
 @media (max-width: 800px) {
     .left{
         display: none;
-    }.projectItemRight {
-    display: none;
-
-   }
-.projectItemRight img {
-    display: none;
-
-}.projectItemLeft{
-    width: 100%;
+ .aboutMe {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-    .projectList {
-        gap: 20px;
-    }
+.aboutMeLeft img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.aboutMeRight h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.aboutMeRight p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.socialLinks a {
+  margin-right: 15px;
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.socialLinks a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+  .aboutMe {
+    flex-direction: column;
+    text-align: center;
+  }
+        }
 
     
 
