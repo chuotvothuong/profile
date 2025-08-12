@@ -287,4 +287,44 @@ footer {
   -webkit-text-fill-color: transparent;
   animation: rainbow 6s ease infinite;
 }
+   footer {
+  text-align: center;
+  padding: 15px 0;
+  background: rgba(0, 0, 0, 0.4); /* nền mờ */
+  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
+}
+
+.ThanhDieuFtCopyright {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff, 0 0 25px #00ffff;
+}
+
+.ThanhDieuFtCopyright a {
+  text-decoration: none;
+}
+
+.ThanhDieuFtCopyright strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Hiệu ứng rainbow cho chữ Jerry ♡ */
+.rainbow-text {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s ease infinite;
+  font-weight: bold;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 }
