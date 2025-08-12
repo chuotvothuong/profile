@@ -197,11 +197,44 @@ body {
 /* =========================
    FOOTER
 ========================= */
-footer {
-  padding: 20px;
+footer.Cuoi {
+  position: fixed;          /* Dính đáy */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;            /* Căn giữa bằng flexbox */
+  justify-content: center;  /* Căn giữa ngang */
+  align-items: center;      /* Căn giữa dọc */
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.4); /* Nền mờ */
+  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
+  z-index: 9999;
   text-align: center;
 }
 
+footer.Cuoi .ThanhDieuFtCopyright {
+  margin: 0;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+}
+
+footer.Cuoi a {
+  text-decoration: none;
+}
+
+footer.Cuoi .rainbow-text {
+  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
+  background-size: 1400% 1400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s ease infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 /* =========================
    TOAST MESSAGE
 ========================= */
@@ -262,133 +295,5 @@ footer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rainbow 6s ease infinite;
-}
-   footer {
-  text-align: center;
-  padding: 15px 0;
-  background: rgba(0, 0, 0, 0.4); /* nền mờ */
-  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
-}
-
-.ThanhDieuFtCopyright {
-  display: inline-block;
-  text-align: center;
-  margin: 0 auto;
-  color: #00ffff;
-  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff, 0 0 25px #00ffff;
-}
-
-.ThanhDieuFtCopyright a {
-  text-decoration: none;
-}
-
-.ThanhDieuFtCopyright strong {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-/* Hiệu ứng rainbow cho chữ Jerry ♡ */
-.rainbow-text {
-  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
-  background-size: 1400% 1400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 6s ease infinite;
-  font-weight: bold;
-}
-
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-   footer.Cuoi {
-  position: fixed;      /* Giữ cố định */
-  bottom: 0;            /* Nằm ở đáy */
-  left: 0;
-  width: 100%;          /* Chiếm hết chiều ngang */
-  text-align: center;   /* Căn giữa nội dung */
-  padding: 10px 0;
-  background: rgba(0, 0, 0, 0.4); /* Nền mờ */
-  color: #fff;
-  z-index: 9999;        /* Luôn nằm trên */
-}
-
-footer.Cuoi a {
-  text-decoration: none;
-}
-
-.rainbow-text {
-  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
-  background-size: 1400% 1400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 6s ease infinite;
-}
-
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-   /* --- Căn giữa nội dung chính --- */
-.BlurWebs {
-  max-width: 500px;      /* Giới hạn chiều rộng để không bị kéo dài xấu */
-  margin: 0 auto;        /* Căn giữa trên màn hình to */
-  text-align: center;
-}
-
-/* Social network gọn đẹp và luôn căn giữa */
-.MangXaHoiFtThanhDieu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;  /* Căn giữa nút */
-  gap: 10px;                 /* Khoảng cách giữa các nút */
-}
-
-.MangXaHoiFtThanhDieu a div {
-  min-width: 120px;          /* Kích thước tối thiểu nút */
-  text-align: center;
-}
-
-/* --- Footer dính đáy với hiệu ứng đẹp --- */
-footer.Cuoi {
-  position: fixed;          /* Dính đáy */
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;            /* Căn giữa bằng flexbox */
-  justify-content: center;  /* Căn giữa ngang */
-  align-items: center;      /* Căn giữa dọc trong footer */
-  padding: 10px 0;
-  background: rgba(0, 0, 0, 0.4); /* Nền mờ */
-  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.5);
-  z-index: 9999;
-  text-align: center;       /* Đảm bảo chữ luôn giữa */
-}
-
-footer.Cuoi .ThanhDieuFtCopyright {
-  margin: 0;
-  color: #00ffff;
-  text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
-}
-
-footer.Cuoi a {
-  text-decoration: none;
-}
-
-footer.Cuoi .rainbow-text {
-  background: linear-gradient(270deg, #ff0000, #ff9900, #33cc33, #3399ff, #9933ff, #ff33cc, #ff0000);
-  background-size: 1400% 1400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 6s ease infinite;
-}
-
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 }
