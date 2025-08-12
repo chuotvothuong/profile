@@ -243,17 +243,21 @@
 <!-- Thanh tiêu đề nhạc -->
 <div id="musicBar" style="
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 700px;
     background: rgba(0, 0, 0, 0.85);
     color: #fff;
     font-size: 18px;
     font-weight: bold;
-    padding: 5px 40px 5px 10px;
+    padding: 8px 40px 8px 10px;
     z-index: 9999;
     box-sizing: border-box;
     overflow: hidden;
+    border-radius: 15px; /* Bo tròn góc */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Đổ bóng */
 ">
     <div style="display: flex; align-items: center;">
         <div style="flex: 1; overflow: hidden; white-space: nowrap;">
@@ -312,8 +316,8 @@
 <script>
 const playlist = [
     { name: "Anh Rất Nhớ Em", src: "./static/music/music1.mp3" },
-    { name: "Track Marke x Melodic Minorr", src: "./static/music/music2.mp3" },
-    { name: "Take Me Hand ", src: "./static/music/music.mp3" }
+    { name: "Track Marke x Melodic Minor", src: "./static/music/music2.mp3" },
+    { name: "Take Me Hand", src: "./static/music/music3.mp3" }
 ];
 let currentSong = 0;
 let isPlaying = false;
@@ -372,7 +376,7 @@ audio.addEventListener("ended", function() {
     updateSongName();
     audio.play();
 });
-                          </script>
+</script>
 <script src="./static/js/script.js?v=1"></script>
   <script src="./static/js/script.js?v=1"></script>
   <script src="./static/toast-cute/cute-alert.js"></script>
