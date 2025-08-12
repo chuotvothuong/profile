@@ -722,51 +722,52 @@ footer {
 @media (max-width: 800px) {
     .left{
         display: none;
- .aboutMe {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
+    }
+.projectItemRight img {
+    display: none;
+
+}.projectItemLeft{
+    width: 100%;
 }
 
-.aboutMeLeft img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.aboutMeRight h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.aboutMeRight p {
-  margin: 10px 0;
-  color: #555;
-}
-
-.socialLinks a {
-  margin-right: 15px;
-  color: #0077ff;
-  text-decoration: none;
-}
-
-.socialLinks a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive cho mobile */
-@media (max-width: 600px) {
-  .aboutMe {
-    flex-direction: column;
-    text-align: center;
-  }
-        }
+    .projectList {
+        gap: 20px;
+    }
 
     
+
+    .right {
+        width: 100%;
+    }
+
+    .hiv {
+        width: 100%;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .welcome {
+        font-size: 48px;
+
+    }
+
+
+    .projectItemLeft p {
+        font-size: 13px;
+    }
+
+    .projectItemLeft h1 {
+
+        font-size: 18px;
+    }
+
+    .projectItem:hover h1 {
+
+        font-size: 20px;
+
+    }
 
     .right {
         width: 100%;
