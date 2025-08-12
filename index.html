@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerry Profile</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jerry Eban</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
+  <!-- Particles -->
+  <div id="particles-js"></div>
 
-    <!-- Video nền -->
-    <video id="bgVideo" autoplay muted loop>
-        <source src="./public/src/t/video/background.mp4" type="video/mp4">
-    </video>
+  <!-- Header -->
+  <div id="home-label">Home</div>
+  <div id="fps">FPS: <span id="fps-counter">0</span></div>
 
-    <!-- Particles -->
-    <div id="particles-js"></div>
+  <!-- Avatar + Welcome -->
+  <div class="BlurWebs">  
+    <div class="avatar-container">  
+      <div class="avatar-frame">  
+        <img id="avatar-img" class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">  
+        <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">  
+      </div>  
+    </div>  
 
-    <!-- Nội dung chính -->
-    <div class="main-content">
-        <div class="BlurWebs">
-            <!-- Avatar -->
-            <div class="avatar-container">
-                <div class="avatar-frame">
-                    <img class="avatar-img" src="./public/src/t/img/avatar.jpg" alt="Avatar">
-                    <img class="frame-img" src="./public/src/t/img/frame.png" alt="Khung VIP">
-                </div>
-            </div>
+    <h2 class="TieuSu">Welcome to Jerry Eban</h2>
 
-            <!-- Tên -->
-            <h2 class="NameFtThanhDieu">
-                Jerry Eban 
-                <img src="./public/src/t/img/verify.png" class="verify" alt="Verified">
-            </h2>
+    <!-- Social Links -->
+    <div class="MangXaHoiFtThanhDieu">  
+      <a href="#" class="rainbow">Facebook</a>  
+      <a href="#" class="rainbow">TikTok</a>  
+      <a href="#" class="rainbow">Discord</a>  
+      <a href="#" class="rainbow">Instagram</a>  
+    </div>  
+  </div>  
 
-            <!-- Mạng xã hội -->
-            <div class="MangXaHoiFtThanhDieu">
-                <a href="https://facebook.com/100035052735014" target="_blank">Facebook (2xx)</a>
-                <a href="#" target="_blank">TikTok (1k+)</a>
-                <a href="#" target="_blank">Discord</a>
-                <a href="#" target="_blank">Instagram</a>
-            </div>
-        </div>
-    </div>
+  <!-- Footer -->
+  <footer class="Cuoi">
+    <p class="ThanhDieuFtCopyright">
+      Created by 
+      <a href="https://facebook.com/100035052735014">
+        <u class="rainbow-text">Jerry ♡</u>
+      </a><br>
+      <strong>All rights reserved - © 2025</strong>
+    </p>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="Cuoi">
-        <p class="ThanhDieuFtCopyright">
-            Created by 
-            <a href="https://facebook.com/100035052735014">
-                <span class="rainbow-text">Jerry ♡</span>
-            </a><br>
-            <strong>All rights reserved - © 2025</strong>
-        </p>
-    </footer>
+  <!-- Audio -->
+  <audio id="bg-music" autoplay loop>
+    <source src="./public/src/t/music/song.mp3" type="audio/mpeg">
+  </audio>
 
-    <!-- Particles JS script -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-    <script>
-        particlesJS.load('particles-js', './particles.json', function() {
-            console.log('Particles loaded');
-        });
-    </script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    /* FPS Counter */
+    let fpsCounter = document.getElementById("fps-counter");
+    let lastFrame = performance.now(), frames = 0;
+    function updateFPS() {
+      let now = performance.now();
+      frames++;
+      if (now - lastFrame >= 1000) {
+        fpsCounter.textContent = frames;
+        frames = 0;
+        lastFrame = now;
+      }
+      requestAnimationFrame(updateFPS);
+    }
+    updateFPS();
 
+    /* Particles Config */
+    particlesJS.load('particles-js', './particles.json');
+  </script>
 </body>
-</html>
+</html> 
