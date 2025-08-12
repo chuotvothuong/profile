@@ -40,13 +40,6 @@ audio.addEventListener("ended",()=>{
   audio.src=MusicList[t]; audio.play();
 });
 
-// Loader
-let spin=document.querySelector('.LoaderCover');
-window.addEventListener('load',()=>{
-  spin.classList.add('HideLoader');
-  setTimeout(()=>spin.remove(),5000);
-});
-
 // Toast
 function ShowToast(){
   let x=document.getElementById("Toast");
