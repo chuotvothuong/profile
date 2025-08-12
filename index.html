@@ -240,6 +240,39 @@
       </div>
     </div>
   </body>
+  <!-- Nhạc nền -->
+<audio id="bgMusic"></audio>
+
+<script>
+    const playlist = [
+    "./static/music/music1.mp3",
+    "./static/music/music2.mp3",
+    "./static/music/music3.mp3"
+    ]; // Danh sách bài nhạc
+    let currentSong = 0;
+
+    const audio = document.getElementById("bgMusic");
+    audio.src = playlist[currentSong];
+
+    // Khi click bất kỳ đâu -> phát nhạc
+    document.addEventListener("click", function() {
+        audio.play();
+    }, { once: true });
+
+    // Khi hết bài -> phát bài tiếp
+    audio.addEventListener("ended", function() {
+        currentSong++;
+        if (currentSong < playlist.length) {
+            audio.src = playlist[currentSong];
+            audio.play();
+        } else {
+            currentSong = 0; // Quay lại bài đầu tiên
+            audio.src = playlist[currentSong];
+            audio.play();
+        }
+    });
+</script>
+<script src="./static/js/script.js?v=1"></script>
   <script src="./static/js/script.js?v=1"></script>
   <script src="./static/toast-cute/cute-alert.js"></script>
 </html>
