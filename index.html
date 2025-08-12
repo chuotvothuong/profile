@@ -252,98 +252,127 @@
     font-weight: bold;
     padding: 5px 40px 5px 10px;
     z-index: 9999;
-    white-space: nowrap;
-    overflow: hidden;
     box-sizing: border-box;
+    overflow: hidden;
 ">
-    <span id="songName" style="display:inline-block; padding-left:100%;"></span>
-    <span id="playPauseBtn" style="
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        cursor: pointer;
-        font-size: 20px;
-        display: inline-block;
-    ">🔊</span>
+    <div style="display: flex; align-items: center;">
+        <div style="flex: 1; overflow: hidden; white-space: nowrap;">
+            <span id="songName" style="display: inline-block;"></span>
+        </div>
+        <span id="playPauseBtn" style="
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        ">🔊</span>
+    </div>
 </div>
 
 <audio id="bgMusic"></audio>
 
 <style>
-/* Hiệu ứng rung cho icon loa */
+/* Chạy chữ ngang */
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Nhịp nhạc: đổi màu chữ + phóng to nhẹ */
+@keyframes beat {
+    0%, 100% { transform: scale(1); color: #fff; }
+    50% { transform: scale(1.15); color: #ffcc00; }
+}
+
+/* Đổi màu nền theo nhịp */
+@keyframes bgBeat {
+    0%, 100% { background-color: rgba(0, 0, 0, 0.85); }
+    25% { background-color: #ff0057; }
+    50% { background-color: #00d2ff; }
+    75% { background-color: #ffcc00; }
+}
+
+/* Rung icon */
 @keyframes shake {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(10deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
 }
-.shake {
+.shaking {
     animation: shake 0.4s infinite;
+}
+.beating {
+    animation: beat 0.6s ease-in-out infinite, scrollText 12s linear infinite;
+}
+.party {
+    animation: bgBeat 1s linear infinite;
 }
 </style>
 
 <script>
-    const playlist = [
-        { name: "Anh Rất Nhớ Em", src: "./static/music/music1.mp3" },
-        { name: "Track Marke x Melodic Minorr", src: "./static/music/music2.mp3" },
-        { name: "Take Me Hand", src: "./static/music/music3.mp3" }
-    ];
-    let currentSong = 0;
-    let isPlaying = false;
+const playlist = [
+    { name: "Anh Rất Nhớ Em", src: "./static/music/music1.mp3" },
+    { name: "Track Marke x Melodic Minorr", src: "./static/music/music2.mp3" },
+    { name: "Take Me Hand ", src: "./static/music/music.mp3" }
+];
+let currentSong = 0;
+let isPlaying = false;
 
-    const audio = document.getElementById("bgMusic");
-    const songNameDisplay = document.getElementById("songName");
-    const playPauseBtn = document.getElementById("playPauseBtn");
+const audio = document.getElementById("bgMusic");
+const songNameDisplay = document.getElementById("songName");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const musicBar = document.getElementById("musicBar");
 
-    function updateSongName() {
-        const name = "🎶 Đang phát: " + playlist[currentSong].name + " 🎶";
-        songNameDisplay.textContent = name;
+function updateSongName() {
+    songNameDisplay.textContent = "🎶 Đang phát: " + playlist[currentSong].name + " 🎶";
+    songNameDisplay.classList.add("beating");
+}
 
-        songNameDisplay.style.transition = "none";
-        songNameDisplay.style.transform = "translateX(100%)";
+// Gán bài hát đầu tiên
+audio.src = playlist[currentSong].src;
+updateSongName();
 
-        setTimeout(() => {
-            songNameDisplay.style.transition = "transform 12s linear infinite";
-            songNameDisplay.style.transform = `translateX(-${songNameDisplay.scrollWidth + window.innerWidth}px)`;
-        }, 50);
+// Click lần đầu bất kỳ đâu để phát nhạc
+document.addEventListener("click", function() {
+    if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+        playPauseBtn.textContent = "🔊";
+        playPauseBtn.classList.add("shaking");
+        songNameDisplay.classList.add("beating");
+        musicBar.classList.add("party");
     }
+}, { once: true });
 
+// Nút icon loa
+playPauseBtn.addEventListener("click", function(e) {
+    e.stopPropagation();
+    if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        playPauseBtn.textContent = "🔇";
+        playPauseBtn.classList.remove("shaking");
+        songNameDisplay.classList.remove("beating");
+        musicBar.classList.remove("party");
+    } else {
+        audio.play();
+        isPlaying = true;
+        playPauseBtn.textContent = "🔊";
+        playPauseBtn.classList.add("shaking");
+        songNameDisplay.classList.add("beating");
+        musicBar.classList.add("party");
+    }
+});
+
+// Hết bài -> chuyển tiếp
+audio.addEventListener("ended", function() {
+    currentSong++;
+    if (currentSong >= playlist.length) currentSong = 0;
     audio.src = playlist[currentSong].src;
     updateSongName();
-
-    document.addEventListener("click", function() {
-        if (!isPlaying) {
-            audio.play();
-            isPlaying = true;
-            playPauseBtn.textContent = "🔊";
-            playPauseBtn.classList.add("shake");
-        }
-    }, { once: true });
-
-    playPauseBtn.addEventListener("click", function(e) {
-        e.stopPropagation();
-        if (isPlaying) {
-            audio.pause();
-            isPlaying = false;
-            playPauseBtn.textContent = "🔇";
-            playPauseBtn.classList.remove("shake");
-        } else {
-            audio.play();
-            isPlaying = true;
-            playPauseBtn.textContent = "🔊";
-            playPauseBtn.classList.add("shake");
-        }
-    });
-
-    audio.addEventListener("ended", function() {
-        currentSong++;
-        if (currentSong >= playlist.length) currentSong = 0;
-        audio.src = playlist[currentSong].src;
-        updateSongName();
-        audio.play();
-    });
-</script>
+    audio.play();
+});
+                          </script>
 <script src="./static/js/script.js?v=1"></script>
   <script src="./static/js/script.js?v=1"></script>
   <script src="./static/toast-cute/cute-alert.js"></script>
