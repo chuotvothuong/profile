@@ -214,8 +214,11 @@ footer.Cuoi {
 
 footer.Cuoi .ThanhDieuFtCopyright {
   margin: 0;
+  padding: 0;
   color: #00ffff;
   text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+  text-align: center; /* đảm bảo luôn giữa */
+  width: 100%; /* để flex không làm lệch */
 }
 
 footer.Cuoi a {
