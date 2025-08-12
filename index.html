@@ -240,36 +240,108 @@
       </div>
     </div>
   </body>
-  <!-- Nhạc nền -->
+<!-- Thanh tiêu đề nhạc -->
+<div id="musicBar" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 40px 5px 10px;
+    z-index: 9999;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+">
+    <span id="songName" style="display:inline-block; padding-left:100%;"></span>
+    <span id="playPauseBtn" style="
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        display: inline-block;
+    ">🔊</span>
+</div>
+
 <audio id="bgMusic"></audio>
+
+<style>
+/* Hiệu ứng rung cho icon loa */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+.shake {
+    animation: shake 0.4s infinite;
+}
+</style>
 
 <script>
     const playlist = [
-    "./static/music/music1.mp3",
-    "./static/music/music2.mp3",
-    "./static/music/music3.mp3"
-    ]; // Danh sách bài nhạc
+        { name: "Anh Rất Nhớ Em", src: "./static/music/music1.mp3" },
+        { name: "Track Marke x Melodic Minorr", src: "./static/music/music2.mp3" },
+        { name: "Take Me Hand", src: "./static/music/music3.mp3" }
+    ];
     let currentSong = 0;
+    let isPlaying = false;
 
     const audio = document.getElementById("bgMusic");
-    audio.src = playlist[currentSong];
+    const songNameDisplay = document.getElementById("songName");
+    const playPauseBtn = document.getElementById("playPauseBtn");
 
-    // Khi click bất kỳ đâu -> phát nhạc
+    function updateSongName() {
+        const name = "🎶 Đang phát: " + playlist[currentSong].name + " 🎶";
+        songNameDisplay.textContent = name;
+
+        songNameDisplay.style.transition = "none";
+        songNameDisplay.style.transform = "translateX(100%)";
+
+        setTimeout(() => {
+            songNameDisplay.style.transition = "transform 12s linear infinite";
+            songNameDisplay.style.transform = `translateX(-${songNameDisplay.scrollWidth + window.innerWidth}px)`;
+        }, 50);
+    }
+
+    audio.src = playlist[currentSong].src;
+    updateSongName();
+
     document.addEventListener("click", function() {
-        audio.play();
+        if (!isPlaying) {
+            audio.play();
+            isPlaying = true;
+            playPauseBtn.textContent = "🔊";
+            playPauseBtn.classList.add("shake");
+        }
     }, { once: true });
 
-    // Khi hết bài -> phát bài tiếp
+    playPauseBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            playPauseBtn.textContent = "🔇";
+            playPauseBtn.classList.remove("shake");
+        } else {
+            audio.play();
+            isPlaying = true;
+            playPauseBtn.textContent = "🔊";
+            playPauseBtn.classList.add("shake");
+        }
+    });
+
     audio.addEventListener("ended", function() {
         currentSong++;
-        if (currentSong < playlist.length) {
-            audio.src = playlist[currentSong];
-            audio.play();
-        } else {
-            currentSong = 0; // Quay lại bài đầu tiên
-            audio.src = playlist[currentSong];
-            audio.play();
-        }
+        if (currentSong >= playlist.length) currentSong = 0;
+        audio.src = playlist[currentSong].src;
+        updateSongName();
+        audio.play();
     });
 </script>
 <script src="./static/js/script.js?v=1"></script>
