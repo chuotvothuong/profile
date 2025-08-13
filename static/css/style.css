@@ -971,3 +971,23 @@ Originally, the mobile version had a single column, but now it has double column
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
     right: 50%;
 }
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Nằm dưới mọi nội dung */
+}
+
+/* PC: hiện video PC, ẩn video mobile */
+#bg-video-pc { display: block; }
+#bg-video-mobile { display: none; }
+
+/* Mobile: hiện video mobile, ẩn video PC */
+@media (max-width: 768px) {
+    #bg-video-pc { display: none; }
+    #bg-video-mobile { display: block; }
+}
+}
